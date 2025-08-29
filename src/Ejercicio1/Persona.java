@@ -109,10 +109,18 @@ public class Persona {
 		           ", su número de teléfono es " + telefono +
 		           " y su correo electrónico es " + email + ".";
 	}
-
 	
-	
-	
-	
-	
+	public static boolean exVerificarDNI (String dni) throws ExVerificarDNI
+	{
+		if(dni.length() != 8) { //.Length() RETORNA EL NUMERO DE CARACTERES (int)
+			throw new ExVerificarDNI();
+		}
+		for (int i=0; i<dni.length(); i++) {
+			if(!Character.isDigit(dni.charAt(i))) { //Character.isDigit() comprueba si el carácter en la posición i es un dígito
+				throw new ExVerificarDNI();
+			}
+			
+		}			
+		return true;
+	}
 }
